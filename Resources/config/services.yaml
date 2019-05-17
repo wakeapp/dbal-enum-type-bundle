@@ -1,0 +1,11 @@
+services:
+    Wakeapp\Bundle\DbalEnumTypeBundle\Doctrine\Connection\ConnectionFactoryDecorator:
+        decorates: doctrine.dbal.connection_factory
+        decoration_inner_name: doctrine.dbal.connection_factory.inner
+        arguments:
+            - '@doctrine.dbal.connection_factory.inner'
+            - '@?Wakeapp\Bundle\EnumerBundle\Registry\EnumRegistryService'
+
+    Wakeapp\Component\DbalEnumType\EventSubscriber\EnumEventSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber }
