@@ -4,6 +4,7 @@ services:
         decoration_inner_name: doctrine.dbal.connection_factory.inner
         arguments:
             - '@doctrine.dbal.connection_factory.inner'
+            - [] # enum type registry
             - '@?Wakeapp\Bundle\EnumerBundle\Registry\EnumRegistryService'
 
     Wakeapp\Component\DbalEnumType\EventSubscriber\EnumEventSubscriber:
