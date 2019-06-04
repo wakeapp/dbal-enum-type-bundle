@@ -21,13 +21,19 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class WakeappDbalEnumTypeExtension extends Extension implements PrependExtensionInterface
 {
+    public const PARAMETER_SOURCES = 'wakeapp_dbal_enum_type.source_directories';
+
     /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $projectDir = $container->getParameter('kernel.project_dir');
+
+        $configuration = new Configuration($projectDir);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter(self::PARAMETER_SOURCES, $config['source_directories'] ?? []);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');

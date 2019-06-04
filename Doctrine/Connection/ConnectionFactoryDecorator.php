@@ -35,13 +35,20 @@ class ConnectionFactoryDecorator
     private $original;
 
     /**
+     * @var string[]
+     */
+    private $typeRegistry;
+
+    /**
      * @param ConnectionFactory $original
+     * @param array $typeRegistry
      * @param EnumRegistryService|null $enumRegistry
      */
-    public function __construct(ConnectionFactory $original, ?EnumRegistryService $enumRegistry)
+    public function __construct(ConnectionFactory $original, array $typeRegistry, ?EnumRegistryService $enumRegistry)
     {
         $this->enumRegistry = $enumRegistry;
         $this->original = $original;
+        $this->typeRegistry = $typeRegistry;
     }
 
     /**
@@ -61,6 +68,12 @@ class ConnectionFactoryDecorator
         array $mappingTypes = []
     ): Connection {
         $connection = $this->original->createConnection($params, $config, $eventManager, $mappingTypes);
+
+        foreach ($this->typeRegistry as $typeClass => $typeName) {
+            if (Type::hasType($typeName) === false) {
+                Type::addType($typeName, $typeClass);
+            }
+        }
 
         if (!$this->enumRegistry) {
             return $connection;
