@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Wakeapp\Bundle\DbalEnumTypeBundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Wakeapp\Bundle\DbalEnumTypeBundle\DependencyInjection\Compiler\DbalEnumTypeRegistryCompilerPass;
 
 class WakeappDbalEnumTypeBundle extends Bundle
 {
