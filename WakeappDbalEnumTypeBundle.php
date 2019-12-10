@@ -19,15 +19,4 @@ use Wakeapp\Bundle\DbalEnumTypeBundle\DependencyInjection\Compiler\DbalEnumTypeR
 
 class WakeappDbalEnumTypeBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function build(ContainerBuilder $container): void
-    {
-        parent::build($container);
-
-        $container
-            ->addCompilerPass(new DbalEnumTypeRegistryCompilerPass())
-        ;
-    }
 }
