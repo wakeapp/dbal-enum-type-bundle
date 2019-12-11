@@ -1,3 +1,10 @@
+## [1.2.0] - 2019-12-10
+### Changed
+- Auto-registration for the doctrine dbal enum types now performs in `WakeappDbalEnumTypeExtension::prepend()`
+### Removed
+- Removed `ConnectionFactoryDecorator`.
+- Removed `DbalEnumTypeRegistryCompilerPass`.
+
 ## [1.1.0] - 2019-06-04
 ### Added
 - Added auto-registration for the doctrine dbal enum types.
