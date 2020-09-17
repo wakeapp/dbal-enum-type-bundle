@@ -1,3 +1,7 @@
+## [1.3.0] - 2020-09-17
+### Added
+- Added support Symfony ~5.0
+
 ## [1.2.0] - 2019-12-10
 ### Changed
 - Auto-registration for the doctrine dbal enum types now performs in `WakeappDbalEnumTypeExtension::prepend()`
