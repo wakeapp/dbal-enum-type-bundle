@@ -1,3 +1,7 @@
+## [1.3.1] - 2020-09-18
+### Changed
+- Added support doctrine/doctrine-bundle ^2.1
+
 ## [1.3.0] - 2020-09-17
 ### Added
 - Added support Symfony ~5.0
