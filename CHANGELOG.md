@@ -1,3 +1,9 @@
+## [Unreleased]
+
+## [1.3.2] - 2021-03-02
+### Added
+- Support PHP ~8.0.
+
 ## [1.3.1] - 2020-09-18
 ### Changed
 - Added support doctrine/doctrine-bundle ^2.1
